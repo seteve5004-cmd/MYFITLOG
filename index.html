@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITLOG | Find Your Fit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="#home">FITLOG<span>.</span></a>
+      <nav class="main-nav">
+        <a class="active" href="#home">HOME</a>
+        <a href="#best">BEST</a>
+        <a href="#category">TOP</a>
+        <a href="#category">BOTTOM</a>
+        <a href="#category">ACC</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="searchButton" aria-label="검색">⌕</button>
+        <button class="text-button" id="cartButton">CART <span>0</span></button>
+        <button class="text-button" id="loginButton">LOGIN</button>
+      </div>
+    </div>
+    <div class="search-panel" id="searchPanel">
+      <input type="text" id="searchInput" placeholder="찾으시는 상품을 입력하세요.">
+      <button id="searchSubmit">검색</button>
+    </div>
+  </header>
+
+  <!-- 로그인 창 -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <button class="login-close" id="loginClose" type="button" aria-label="로그인 창 닫기">×</button>
+      <p class="eyebrow">WELCOME TO FITLOG</p>
+      <h2>LOGIN<span>.</span></h2>
+      <p class="login-description">이메일과 비밀번호를 입력해 주세요.</p>
+      <form id="loginForm">
+        <label for="loginEmail">아이디 (이메일)</label>
+        <input type="email" id="loginEmail" placeholder="example@email.com" required>
+        <label for="loginPassword">비밀번호</label>
+        <input type="password" id="loginPassword" placeholder="영문 8자 이상 + 특수문자 1개 이상" required>
+        <p class="password-guide">영문 알파벳 8자 이상, 특수문자 1개 이상 포함</p>
+        <button class="login-submit" type="submit">로그인</button>
+      </form>
+      <p class="login-demo-note">※ 과제용 화면 기능이며 실제 회원 인증은 진행되지 않습니다.</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- 메인 배너 -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR DAILY FIT ARCHIVE</p>
+        <h1>FIND<br>YOUR FIT<span>.</span></h1>
+        <p class="hero-description">나에게 맞는 핏을 기록하다.<br>비슷한 체형의 실제 착용 정보로 더 똑똑하게 쇼핑하세요.</p>
+        <a class="black-button" href="#best">상품 둘러보기 <span>↗</span></a>
+        <div class="hero-note">FITLOG — REAL FIT, REAL PEOPLE</div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=85" alt="캐주얼 스트릿 패션">
+        <div class="hero-sticker"><strong>01</strong><span>YOUR<br>FIT GUIDE</span></div>
+      </div>
+    </section>
+
+    <!-- 카테고리 -->
+    <section class="section category-section" id="category">
+      <div class="section-heading">
+        <div><p class="eyebrow">SHOP YOUR STYLE</p><h2>CATEGORY</h2></div>
+        <p class="heading-caption">오늘의 취향에 맞는 아이템을 찾아보세요.</p>
+      </div>
+      <div class="category-grid">
+        <a class="category-card" href="#best"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80" alt="후드티"><span>HOODIE</span><small>후드티</small></a>
+        <a class="category-card" href="#best"><img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=600&q=80" alt="맨투맨"><span>SWEATSHIRT</span><small>맨투맨</small></a>
+        <a class="category-card" href="#best"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="티셔츠"><span>T-SHIRT</span><small>티셔츠</small></a>
+        <a class="category-card" href="#best"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80" alt="청바지"><span>DENIM</span><small>청바지</small></a>
+        <a class="category-card" href="#best"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" alt="가방"><span>BAG</span><small>가방</small></a>
+      </div>
+    </section>
+
+    <!-- 베스트 상품 -->
+    <section class="section best-section" id="best">
+      <div class="section-heading">
+        <div><p class="eyebrow">THIS WEEK'S PICK</p><h2>BEST ITEMS</h2></div>
+        <a class="more-link" href="#best">전체 상품 보기 ↗</a>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-name="오버핏 데일리 후드티">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85" alt="오버핏 데일리 후드티"><span class="sale-label">20% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
+          <p class="product-category">TOP · HOODIE</p><h3>오버핏 데일리 후드티</h3><div class="price"><strong>39,200원</strong><del>49,000원</del></div><p class="fit-info">리뷰 128개 <span>·</span> 구매자 핏 정보</p>
+        </article>
+        <article class="product-card" data-name="베이직 코튼 맨투맨">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=85" alt="베이직 코튼 맨투맨"><span class="sale-label">15% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
+          <p class="product-category">TOP · SWEATSHIRT</p><h3>베이직 코튼 맨투맨</h3><div class="price"><strong>33,900원</strong><del>39,900원</del></div><p class="fit-info">리뷰 96개 <span>·</span> 구매자 핏 정보</p>
+        </article>
+        <article class="product-card" data-name="와이드 스트레이트 데님">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85" alt="와이드 스트레이트 데님"><span class="sale-label">10% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
+          <p class="product-category">BOTTOM · DENIM</p><h3>와이드 스트레이트 데님</h3><div class="price"><strong>44,100원</strong><del>49,000원</del></div><p class="fit-info">리뷰 74개 <span>·</span> 구매자 핏 정보</p>
+        </article>
+        <article class="product-card" data-name="데일리 캔버스 백">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85" alt="데일리 캔버스 백"><span class="sale-label">NEW</span><button class="heart-button" aria-label="찜하기">♡</button></div>
+          <p class="product-category">ACC · BAG</p><h3>데일리 캔버스 백</h3><div class="price"><strong>28,000원</strong></div><p class="fit-info">리뷰 32개 <span>·</span> 구매자 핏 정보</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FITLOG 핵심 기능 -->
+    <section class="fit-feature">
+      <div class="feature-top"><p class="eyebrow">NOT JUST A SIZE CHART</p><span>FITLOG ONLY / 02</span></div>
+      <h2>REAL PEOPLE.<br><em>REAL FIT.</em></h2>
+      <p class="feature-description">사이즈표만으로는 알기 어려웠던 나의 핏.<br>나와 비슷한 체형의 구매자 정보를 확인해 보세요.</p>
+      <div class="feature-grid">
+        <div class="feature-item"><span class="feature-number">01</span><div class="feature-icon">↗</div><h3>체형별 구매자 찾기</h3><p>나와 키와 몸무게가 비슷한<br>구매자의 착용 정보를 확인해요.</p></div>
+        <div class="feature-item"><span class="feature-number">02</span><div class="feature-icon">▧</div><h3>실제 착용 사진 확인</h3><p>모델 사진이 아닌 실제 구매자의<br>자연스러운 착용 모습을 확인해요.</p></div>
+        <div class="feature-item"><span class="feature-number">03</span><div class="feature-icon">⌁</div><h3>키와 몸무게별 후기</h3><p>체형과 구매 사이즈를 비교해<br>나에게 맞는 사이즈를 찾아요.</p></div>
+      </div>
+    </section>
+
+    <!-- 실제 구매자 리뷰 -->
+    <section class="section review-section" id="review">
+      <div class="section-heading">
+        <div><p class="eyebrow">PEOPLE'S FIT</p><h2>REAL FIT REVIEW</h2></div>
+        <p class="heading-caption">나와 비슷한 체형의 리뷰를 확인해 보세요.</p>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="후드티 착용 리뷰">
+          <div class="review-content"><span class="review-tag">HOODIE REVIEW</span><h3>오버핏 데일리 후드티</h3><div class="review-stats"><span><small>HEIGHT</small>168cm</span><span><small>WEIGHT</small>55kg</span><span><small>SIZE</small>M</span></div><p>"기장도 적당하고 전체적으로 여유 있는 핏이라 만족해요."</p></div>
+        </article>
+        <article class="review-card">
+          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85" alt="캐주얼 상의 착용 리뷰">
+          <div class="review-content"><span class="review-tag">TOP REVIEW</span><h3>베이직 코튼 맨투맨</h3><div class="review-stats"><span><small>HEIGHT</small>175cm</span><span><small>WEIGHT</small>68kg</span><span><small>SIZE</small>L</span></div><p>"원하는 오버핏으로 잘 맞아요. 데일리로 입기 좋아요."</p></div>
+        </article>
+        <article class="review-card">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85" alt="데님 착용 리뷰">
+          <div class="review-content"><span class="review-tag">DENIM REVIEW</span><h3>와이드 스트레이트 데님</h3><div class="review-stats"><span><small>HEIGHT</small>162cm</span><span><small>WEIGHT</small>49kg</span><span><small>SIZE</small>S</span></div><p>"허리는 잘 맞고 다리 라인이 자연스럽게 떨어져요."</p></div>
+        </article>
+      </div>
+      <p class="demo-note">※ 화면 구성을 위한 예시 리뷰이며 실제 구매자 데이터가 아닙니다.</p>
+    </section>
+
+    <!-- 학생 할인 배너 -->
+    <section class="student-banner">
+      <div><p class="eyebrow">A LITTLE MORE FOR STUDENTS</p><h2>CAMPUS<br>SALE<span>.</span></h2><p>매일 입는 옷, 부담 없는 가격으로.<br>대학생을 위한 특별한 쇼핑을 만나보세요.</p><a href="#best" class="white-button">할인 상품 보기 ↗</a></div>
+      <div class="student-side"><span>STUDENT</span><strong>FIT<br>YOUR<br>BUDGET.</strong><small>YOUR STYLE, YOUR PRICE.</small></div>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer class="footer">
+    <div class="footer-top"><a class="logo footer-logo" href="#home">FITLOG<span>.</span></a><div class="footer-links"><a href="#home">회사 소개</a><a href="#home">이용약관</a><a href="#home">개인정보처리방침</a><a href="#home">고객센터</a></div></div>
+    <div class="footer-bottom"><p>상호명 FITLOG | 대표자 홍길동 | 사업자등록번호 000-00-00000<br>주소 서울특별시 FITLOG로 00 | 고객센터 1588-0000</p><p>MON-FRI 10:00 - 17:00<br>© 2026 FITLOG. ALL RIGHTS RESERVED.</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

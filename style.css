@@ -1,0 +1,186 @@
+/* 기본 설정 */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: #171717; background: #fff; font-family: 'Pretendard', Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img { display: block; width: 100%; object-fit: cover; }
+.section { width: 1180px; margin: 0 auto; padding: 105px 0; }
+
+/* 헤더 */
+.header { height: 82px; border-bottom: 1px solid #e9e9e9; background: #fff; position: relative; z-index: 10; }
+.header-inner { width: 1180px; height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 27px; font-weight: 800; letter-spacing: -1.8px; }
+.logo span, .hero h1 span, .student-banner h2 span { color: #91a18b; }
+.main-nav { display: flex; gap: 38px; margin-left: 75px; }
+.main-nav a { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #777; }
+.main-nav a:hover, .main-nav a.active { color: #171717; }
+.header-actions { display: flex; align-items: center; gap: 22px; }
+.icon-button, .text-button { border: 0; background: none; color: #171717; }
+.icon-button { font-size: 29px; line-height: 1; }
+.text-button { font-size: 11px; font-weight: 700; letter-spacing: .6px; }
+.text-button span { color: #91a18b; }
+.search-panel { display: none; position: absolute; top: 81px; right: calc((100% - 1180px) / 2); width: 360px; padding: 12px; background: #fff; border: 1px solid #ddd; box-shadow: 0 10px 25px #00000012; }
+.search-panel.show { display: flex; }
+.search-panel input { flex: 1; border: 0; outline: 0; padding: 10px; }
+.search-panel button { border: 0; background: #171717; color: #fff; padding: 0 16px; }
+
+/* 메인 배너 */
+.hero { width: 1180px; height: 570px; margin: 35px auto 0; display: grid; grid-template-columns: 48% 52%; background: #f4f4f1; overflow: hidden; }
+.hero-copy { padding: 85px 0 45px 72px; position: relative; }
+.eyebrow { margin: 0 0 17px; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #899584; }
+.hero h1 { margin: 0; font-size: 83px; line-height: .91; letter-spacing: -6px; font-weight: 800; }
+.hero-description { margin: 29px 0 28px; color: #666; font-size: 14px; line-height: 1.9; }
+.black-button, .white-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; padding: 16px 21px; font-size: 11px; font-weight: 700; }
+.black-button { color: #fff; background: #171717; }
+.black-button:hover { background: #91a18b; }
+.hero-note { position: absolute; bottom: 34px; left: 72px; font-size: 9px; letter-spacing: 1.6px; color: #999; }
+.hero-image { position: relative; height: 570px; }
+.hero-image img { height: 100%; object-position: center 38%; }
+.hero-sticker { position: absolute; right: 24px; bottom: 24px; width: 105px; height: 105px; border-radius: 50%; background: #91a18b; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.hero-sticker strong { font-size: 25px; }
+.hero-sticker span { font-size: 8px; line-height: 1.4; letter-spacing: 1px; text-align: center; }
+
+/* 공통 섹션 제목 */
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 36px; }
+.section-heading h2 { margin: 0; font-size: 34px; letter-spacing: -1.5px; }
+.section-heading .eyebrow { margin-bottom: 10px; }
+.heading-caption { margin: 0 0 5px; color: #888; font-size: 12px; }
+.more-link { font-size: 11px; font-weight: 700; }
+
+/* 카테고리 */
+.category-section { padding-bottom: 100px; }
+.category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 17px; }
+.category-card { position: relative; height: 250px; overflow: hidden; background: #eee; }
+.category-card img { height: 100%; transition: transform .4s; filter: brightness(.82); }
+.category-card:hover img { transform: scale(1.06); }
+.category-card span { position: absolute; left: 17px; bottom: 42px; color: #fff; font-size: 14px; font-weight: 800; letter-spacing: 1px; }
+.category-card small { position: absolute; left: 17px; bottom: 20px; color: #fff; font-size: 11px; }
+
+/* 베스트 상품 */
+.best-section { border-top: 1px solid #eee; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-image { position: relative; height: 330px; background: #f1f1f1; overflow: hidden; }
+.product-image img { height: 100%; transition: transform .4s; }
+.product-card:hover .product-image img { transform: scale(1.04); }
+.sale-label { position: absolute; top: 13px; left: 13px; padding: 7px 9px; color: #fff; background: #91a18b; font-size: 9px; font-weight: 700; }
+.heart-button { position: absolute; top: 9px; right: 12px; border: 0; background: transparent; color: #171717; font-size: 25px; }
+.heart-button.liked { color: #91a18b; }
+.product-category { margin: 17px 0 7px; color: #999; font-size: 9px; letter-spacing: 1px; }
+.product-card h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+.price { display: flex; align-items: center; gap: 9px; font-size: 13px; }
+.price del { color: #aaa; font-size: 11px; }
+.fit-info { margin: 12px 0 0; color: #888; font-size: 10px; }
+.fit-info span { padding: 0 4px; color: #91a18b; }
+
+/* FITLOG 핵심 기능 */
+.fit-feature { padding: 82px max(calc((100% - 1180px) / 2), 0px) 88px; background: #f2f3ef; }
+.feature-top { display: flex; justify-content: space-between; }
+.feature-top span { color: #999; font-size: 9px; letter-spacing: 1px; }
+.fit-feature h2 { margin: 0; font-size: 64px; line-height: .98; letter-spacing: -3px; }
+.fit-feature h2 em { color: #91a18b; font-style: normal; }
+.feature-description { margin: 22px 0 48px; color: #777; font-size: 13px; line-height: 1.8; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d8dbd3; }
+.feature-item { position: relative; padding: 28px 25px 0 0; }
+.feature-number { color: #91a18b; font-size: 10px; font-weight: 700; }
+.feature-icon { margin: 18px 0; font-size: 31px; }
+.feature-item h3 { margin: 0 0 10px; font-size: 15px; }
+.feature-item p { margin: 0; color: #888; font-size: 11px; line-height: 1.8; }
+
+/* 실제 구매자 리뷰 */
+.review-section { padding-top: 105px; padding-bottom: 110px; }
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card { background: #f6f6f4; }
+.review-card > img { height: 340px; }
+.review-content { padding: 21px 20px 23px; }
+.review-tag { color: #91a18b; font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+.review-content h3 { margin: 9px 0 17px; font-size: 15px; }
+.review-stats { display: grid; grid-template-columns: repeat(3, 1fr); padding: 13px 0; border-top: 1px solid #e4e4e0; border-bottom: 1px solid #e4e4e0; }
+.review-stats span { font-size: 13px; font-weight: 700; }
+.review-stats small { display: block; margin-bottom: 5px; color: #999; font-size: 8px; letter-spacing: 1px; }
+.review-content > p { margin: 15px 0 0; color: #777; font-size: 11px; line-height: 1.7; }
+.demo-note { margin: 15px 0 0; color: #aaa; font-size: 10px; text-align: right; }
+
+/* 학생 이벤트 */
+.student-banner { width: 1180px; height: 360px; margin: 0 auto 110px; padding: 48px 65px; display: flex; justify-content: space-between; color: #fff; background: #202321; }
+.student-banner .eyebrow { color: #aab8a3; }
+.student-banner h2 { margin: 0; font-size: 59px; line-height: .92; letter-spacing: -3px; }
+.student-banner p:not(.eyebrow) { margin: 19px 0 20px; color: #c4c8c3; font-size: 12px; line-height: 1.8; }
+.white-button { background: #fff; color: #171717; }
+.student-side { width: 300px; padding: 20px 0 0 40px; border-left: 1px solid #555b55; display: flex; flex-direction: column; justify-content: center; }
+.student-side span { color: #aab8a3; font-size: 10px; letter-spacing: 2px; }
+.student-side strong { margin: 14px 0; font-size: 43px; line-height: .95; letter-spacing: -2px; }
+.student-side small { color: #8d958d; font-size: 8px; letter-spacing: 1.5px; }
+
+/* 푸터 */
+.footer { padding: 42px 0 35px; background: #f5f5f3; }
+.footer-top, .footer-bottom { width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; }
+.footer-logo { font-size: 24px; }
+.footer-links { display: flex; gap: 25px; align-items: center; }
+.footer-links a { font-size: 10px; color: #666; }
+.footer-bottom { margin-top: 28px; padding-top: 23px; border-top: 1px solid #e2e2df; }
+.footer-bottom p { margin: 0; color: #999; font-size: 9px; line-height: 1.9; }
+.footer-bottom p:last-child { text-align: right; }
+
+/* 클릭 기능 안내창 */
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); padding: 13px 22px; background: #171717; color: #fff; font-size: 12px; opacity: 0; pointer-events: none; transition: .25s; z-index: 50; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+
+/* 로그인 창 */
+.login-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000080;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+.login-overlay.show { display: flex; }
+.login-box {
+  position: relative;
+  width: 420px;
+  padding: 42px 40px 30px;
+  background: #fff;
+  box-shadow: 0 15px 45px #00000025;
+}
+.login-close {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+  border: 0;
+  background: none;
+  color: #777;
+  font-size: 28px;
+}
+.login-box .eyebrow { margin-bottom: 9px; }
+.login-box h2 { margin: 0; font-size: 34px; letter-spacing: -1px; }
+.login-box h2 span { color: #91a18b; }
+.login-description { margin: 10px 0 27px; color: #888; font-size: 12px; }
+#loginForm { display: flex; flex-direction: column; }
+#loginForm label { margin: 0 0 8px; font-size: 12px; font-weight: 700; }
+#loginForm input {
+  height: 43px;
+  margin-bottom: 19px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font: inherit;
+  font-size: 12px;
+}
+#loginForm input:focus { border-color: #91a18b; }
+.password-guide { margin: -10px 0 20px; color: #999; font-size: 10px; }
+.login-submit {
+  height: 46px;
+  border: 0;
+  background: #171717;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.login-submit:hover { background: #91a18b; }
+.login-demo-note { margin: 17px 0 0; color: #aaa; font-size: 9px; line-height: 1.6; }
