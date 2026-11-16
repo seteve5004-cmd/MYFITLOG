@@ -10,12 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  
-
-
-
-  
+  <!-- 상단 헤더 -->
   <header class="header">
     <div class="header-inner">
       <a class="logo" href="#home">FITLOG<span>.</span></a>
@@ -25,7 +20,7 @@
         <a href="#category">TOP</a>
         <a href="#category">BOTTOM</a>
         <a href="#category">ACC</a>
-        <a href="#communication">COMMUNICATION</a>
+        <a href="#communication">커뮤니케이션</a>
       </nav>
       <div class="header-actions">
         <button class="icon-button" id="searchButton" aria-label="검색">⌕</button>
@@ -58,9 +53,8 @@
     </div>
   </div>
 
-   <main>
+  <main>
     <!-- 메인 배너 -->
-     
     <section class="hero" id="home">
       <div class="hero-copy">
         <p class="eyebrow">YOUR DAILY FIT ARCHIVE</p>
@@ -73,22 +67,7 @@
         <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=85" alt="캐주얼 스트릿 패션">
         <div class="hero-sticker"><strong>01</strong><span>YOUR<br>FIT GUIDE</span></div>
       </div>
-
-      <!-- 커뮤니케이션 (Giscus 댓글 연동) 섹션 추가 -->
-    <section class="section communication-section" id="communication">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">FITLOG COMMUNITY</p>
-          <h2>COMMUNICATION</h2>
-        </div>
-        <p class="heading-caption">자유롭게 핏 후기와 의견을 남겨주세요.</p>
-      </div>
-      <!-- Giscus 스크립트가 삽입될 영역 -->
-      <div id="giscus-container"></div>
     </section>
-
-
- 
 
     <!-- 카테고리 -->
     <section class="section category-section" id="category">
@@ -170,6 +149,34 @@
     <section class="student-banner">
       <div><p class="eyebrow">A LITTLE MORE FOR STUDENTS</p><h2>CAMPUS<br>SALE<span>.</span></h2><p>매일 입는 옷, 부담 없는 가격으로.<br>대학생을 위한 특별한 쇼핑을 만나보세요.</p><a href="#best" class="white-button">할인 상품 보기 ↗</a></div>
       <div class="student-side"><span>STUDENT</span><strong>FIT<br>YOUR<br>BUDGET.</strong><small>YOUR STYLE, YOUR PRICE.</small></div>
+    </section>
+
+    <!-- 커뮤니케이션 (GitHub Giscus 방명록 연동) -->
+    <section class="section communication-section" id="communication">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FITLOG COMMUNITY &amp; GUESTBOOK</p>
+          <h2>커뮤니케이션<span>.</span></h2>
+        </div>
+        <p class="heading-caption">GitHub 계정으로 로그인하여 자유롭게 핏 후기와 방명록을 남겨주세요.</p>
+      </div>
+      <div class="giscus-wrapper">
+        <script src="https://giscus.app/client.js"
+                data-repo="seteve5004-cmd/MYFITLOG"
+                data-repo-id="R_kgDOVv1qRA"
+                data-category="General"
+                data-category-id="DIC_kwDOVv1qRM4DLOj3"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="ko"
+                crossorigin="anonymous"
+                async>
+        </script>
+      </div>
     </section>
   </main>
 
