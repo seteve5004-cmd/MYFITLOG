@@ -175,28 +175,13 @@ heartButtons.forEach(function (button) {
   });
 });
 
-// 카테고리와 상품 이동 링크는 HTML의 #주소를 이용합니다.
-
-// Giscus 댓글 기능 동적 로드
-window.addEventListener('DOMContentLoaded', function () {
-  const giscusContainer = document.getElementById('giscus-container');
-  if (giscusContainer) {
-    const giscusScript = document.createElement('script');
-    giscusScript.src = 'https://giscus.app/client.js';
-    giscusScript.setAttribute('data-repo', 'seteve5004-cmd/MYFITLOG');
-    giscusScript.setAttribute('data-repo-id', 'R_kgDOVv1qRA');
-    giscusScript.setAttribute('data-category', 'General');
-    giscusScript.setAttribute('data-category-id', 'DIC_kwDOVv1qRM4DLOj3');
-    giscusScript.setAttribute('data-mapping', 'pathname');
-    giscusScript.setAttribute('data-strict', '0');
-    giscusScript.setAttribute('data-reactions-enabled', '1');
-    giscusScript.setAttribute('data-emit-metadata', '0');
-    giscusScript.setAttribute('data-input-position', 'bottom');
-    giscusScript.setAttribute('data-theme', 'preferred_color_scheme');
-    giscusScript.setAttribute('data-lang', 'ko');
-    giscusScript.crossOrigin = 'anonymous';
-    giscusScript.async = true;
-
-    giscusContainer.appendChild(giscusScript);
-  }
+// 네비게이션 메뉴 클릭 시 active 표시 변경
+const navLinks = document.querySelectorAll(".main-nav a");
+navLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.forEach(function (item) {
+      item.classList.remove("active");
+    });
+    link.classList.add("active");
+  });
 });
