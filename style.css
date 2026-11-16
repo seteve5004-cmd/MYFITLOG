@@ -184,3 +184,20 @@ img { display: block; width: 100%; object-fit: cover; }
 }
 .login-submit:hover { background: #91a18b; }
 .login-demo-note { margin: 17px 0 0; color: #aaa; font-size: 9px; line-height: 1.6; }
+
+
+
+/* 커뮤니케이션 (Giscus) 섹션 스타일 */
+.communication-section {
+  border-top: 1px solid #eee;
+  background-color: #fafaf8;
+  padding: 105px 0;
+}
+.communication-section .section-heading {
+  width: 1180px;
+  margin: 0 auto 36px;
+}
+#giscus-container {
+  width: 1180px;
+  margin: 0 auto;
+}
