@@ -11,7 +11,7 @@ img { display: block; width: 100%; object-fit: cover; }
 .header { height: 82px; border-bottom: 1px solid #e9e9e9; background: #fff; position: relative; z-index: 10; }
 .header-inner { width: 1180px; height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-size: 27px; font-weight: 800; letter-spacing: -1.8px; }
-.logo span, .hero h1 span, .student-banner h2 span { color: #91a18b; }
+.logo span, .hero h1 span, .student-banner h2 span, .communication-section h2 span { color: #91a18b; }
 .main-nav { display: flex; gap: 38px; margin-left: 75px; }
 .main-nav a { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #777; }
 .main-nav a:hover, .main-nav a.active { color: #171717; }
@@ -102,7 +102,7 @@ img { display: block; width: 100%; object-fit: cover; }
 .demo-note { margin: 15px 0 0; color: #aaa; font-size: 10px; text-align: right; }
 
 /* 학생 이벤트 */
-.student-banner { width: 1180px; height: 360px; margin: 0 auto 110px; padding: 48px 65px; display: flex; justify-content: space-between; color: #fff; background: #202321; }
+.student-banner { width: 1180px; height: 360px; margin: 0 auto 105px; padding: 48px 65px; display: flex; justify-content: space-between; color: #fff; background: #202321; }
 .student-banner .eyebrow { color: #aab8a3; }
 .student-banner h2 { margin: 0; font-size: 59px; line-height: .92; letter-spacing: -3px; }
 .student-banner p:not(.eyebrow) { margin: 19px 0 20px; color: #c4c8c3; font-size: 12px; line-height: 1.8; }
@@ -111,6 +111,18 @@ img { display: block; width: 100%; object-fit: cover; }
 .student-side span { color: #aab8a3; font-size: 10px; letter-spacing: 2px; }
 .student-side strong { margin: 14px 0; font-size: 43px; line-height: .95; letter-spacing: -2px; }
 .student-side small { color: #8d958d; font-size: 8px; letter-spacing: 1.5px; }
+
+/* 커뮤니케이션 (Giscus 방명록) */
+.communication-section {
+  border-top: 1px solid #eee;
+  padding-top: 95px;
+  padding-bottom: 110px;
+}
+.giscus-wrapper {
+  background: #fafaf8;
+  border: 1px solid #e9e9e6;
+  padding: 36px 40px;
+}
 
 /* 푸터 */
 .footer { padding: 42px 0 35px; background: #f5f5f3; }
@@ -125,7 +137,6 @@ img { display: block; width: 100%; object-fit: cover; }
 /* 클릭 기능 안내창 */
 .toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); padding: 13px 22px; background: #171717; color: #fff; font-size: 12px; opacity: 0; pointer-events: none; transition: .25s; z-index: 50; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
-
 
 /* 로그인 창 */
 .login-overlay {
@@ -184,20 +195,3 @@ img { display: block; width: 100%; object-fit: cover; }
 }
 .login-submit:hover { background: #91a18b; }
 .login-demo-note { margin: 17px 0 0; color: #aaa; font-size: 9px; line-height: 1.6; }
-
-
-
-/* 커뮤니케이션 (Giscus) 섹션 스타일 */
-.communication-section {
-  border-top: 1px solid #eee;
-  background-color: #fafaf8;
-  padding: 105px 0;
-}
-.communication-section .section-heading {
-  width: 1180px;
-  margin: 0 auto 36px;
-}
-#giscus-container {
-  width: 1180px;
-  margin: 0 auto;
-}
