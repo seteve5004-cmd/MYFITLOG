@@ -195,3 +195,42 @@ img { display: block; width: 100%; object-fit: cover; }
 }
 .login-submit:hover { background: #91a18b; }
 .login-demo-note { margin: 17px 0 0; color: #aaa; font-size: 9px; line-height: 1.6; }
+
+
+#signupOverlay .login-box { max-height: 92vh; overflow-y: auto; }
+#signupForm { display: flex; flex-direction: column; }
+#signupForm label { margin: 0 0 8px; font-size: 12px; font-weight: 700; }
+#signupForm input[type="text"],
+#signupForm input[type="email"],
+#signupForm input[type="password"] {
+  height: 43px;
+  margin-bottom: 19px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font: inherit;
+  font-size: 12px;
+}
+#signupForm input:focus { border-color: #91a18b; }
+#signupForm .agree-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  color: #666;
+  font-weight: 400;
+  cursor: pointer;
+}
+#signupForm .agree-label input { width: 14px; height: 14px; margin: 0; accent-color: #91a18b; }
+.switch-text { margin: 14px 0 0; color: #888; font-size: 11px; text-align: center; }
+.switch-text button {
+  border: 0;
+  background: none;
+  color: #171717;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.switch-text button:hover { color: #91a18b; }
+
