@@ -438,3 +438,21 @@ img { display: block; width: 100%; object-fit: cover; }
 .cart-order-btn:hover {
   background: #91a18b;
 }
+
+
+.survey-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.survey-section iframe {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  margin: 40px auto 0;
+  border: none;
+  background: white;
+}
+
+
+
