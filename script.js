@@ -96,99 +96,8 @@ function checkLogin() {
 loginButton.addEventListener("click", function () {
   const savedEmail = sessionStorage.getItem("loginEmail");
 
-  if (savedEmail !== null) {
-    sessionStorage.removeItem("loginEmail");
-    checkLogin();
-    showMessage("로그아웃되었습니다.");
-  } else {
-    loginOverlay.classList.add("show");
-    loginEmail.focus();
-  }
-});
 
-// X 버튼을 누르면 로그인 창을 닫습니다.
-loginClose.addEventListener("click", function () {
-  loginOverlay.classList.remove("show");
-});
-
-// 로그인 창 바깥쪽을 누르면 창을 닫습니다.
-loginOverlay.addEventListener("click", function (event) {
-  if (event.target === loginOverlay) {
-    loginOverlay.classList.remove("show");
-  }
-});
-
-// 로그인 정보를 검사합니다.
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const email = loginEmail.value.trim();
-  const password = loginPassword.value;
-
-  // 이메일 형식인지 확인합니다.
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailPattern.test(email)) {
-    showMessage("올바른 이메일 주소를 입력해 주세요.");
-    loginEmail.focus();
-    return;
-  }
-
-  // 영문 알파벳이 8자 이상인지 확인합니다.
-  const alphabetCount = (password.match(/[a-zA-Z]/g) || []).length;
-
-  // 특수문자가 1개 이상 포함되어 있는지 확인합니다.
-  const specialPattern = /[^a-zA-Z0-9\s]/;
-
-  if (alphabetCount < 8 || !specialPattern.test(password)) {
-    showMessage("비밀번호는 영문 8자 이상과 특수문자 1개 이상이 필요합니다.");
-    loginPassword.focus();
-    return;
-  }
-
-  // 조건을 통과하면 이메일을 세션 스토리지에 저장합니다.
-  sessionStorage.setItem("loginEmail", email);
-  checkLogin();
-
-  loginForm.reset();
-  loginOverlay.classList.remove("show");
-  showMessage("로그인되었습니다. 환영합니다!");
-});
-
-// 페이지가 열릴 때 로그인 상태를 확인합니다.
-checkLogin();
-
-// 상품 카드의 하트 버튼을 누르면 색상이 바뀝니다.
-const heartButtons = document.querySelectorAll(".heart-button");
-
-heartButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    button.classList.toggle("liked");
-
-    if (button.classList.contains("liked")) {
-      button.textContent = "♥";
-      showMessage("관심 상품에 추가했습니다.");
-    } else {
-      button.textContent = "♡";
-      showMessage("관심 상품에서 삭제했습니다.");
-    }
-  });
-});
-
-// 네비게이션 메뉴 클릭 시 active 표시 변경
-const navLinks = document.querySelectorAll(".main-nav a");
-navLinks.forEach(function (link) {
-  link.addEventListener("click", function () {
-    navLinks.forEach(function (item) {
-      item.classList.remove("active");
-    });
-    link.classList.add("active");
-  });
-});
-
-
-
-// ===== 회원가입 기능 =====
+  // ===== 회원가입 기능 =====
 const signupOverlay = document.getElementById("signupOverlay");
 const signupClose = document.getElementById("signupClose");
 const signupForm = document.getElementById("signupForm");
@@ -348,4 +257,115 @@ signupForm.addEventListener("submit", function (event) {
   loginOverlay.classList.remove("show");
   showMessage(member.name + "님, 로그인되었습니다. 환영합니다!");
 });
+
+
+  if (savedEmail !== null) {
+    sessionStorage.removeItem("loginEmail");
+    checkLogin();
+    showMessage("로그아웃되었습니다.");
+  } else {
+    loginOverlay.classList.add("show");
+    loginEmail.focus();
+  }
+});
+
+// X 버튼을 누르면 로그인 창을 닫습니다.
+loginClose.addEventListener("click", function () {
+  loginOverlay.classList.remove("show");
+});
+
+// 로그인 창 바깥쪽을 누르면 창을 닫습니다.
+loginOverlay.addEventListener("click", function (event) {
+  if (event.target === loginOverlay) {
+    loginOverlay.classList.remove("show");
+  }
+});
+
+// 로그인 정보를 검사합니다.
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const email = loginEmail.value.trim();
+  const password = loginPassword.value;
+
+  // 이메일 형식인지 확인합니다.
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(email)) {
+    showMessage("올바른 이메일 주소를 입력해 주세요.");
+    loginEmail.focus();
+    return;
+  }
+
+  // 영문 알파벳이 8자 이상인지 확인합니다.
+  const alphabetCount = (password.match(/[a-zA-Z]/g) || []).length;
+
+  // 특수문자가 1개 이상 포함되어 있는지 확인합니다.
+  const specialPattern = /[^a-zA-Z0-9\s]/;
+
+  if (alphabetCount < 8 || !specialPattern.test(password)) {
+    showMessage("비밀번호는 영문 8자 이상과 특수문자 1개 이상이 필요합니다.");
+    loginPassword.focus();
+    return;
+  }
+
+  // 조건을 통과하면 이메일을 세션 스토리지에 저장합니다.
+  sessionStorage.setItem("loginEmail", email);
+  checkLogin();
+
+  loginForm.reset();
+  loginOverlay.classList.remove("show");
+  showMessage("로그인되었습니다. 환영합니다!");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 페이지가 열릴 때 로그인 상태를 확인합니다.
+checkLogin();
+
+// 상품 카드의 하트 버튼을 누르면 색상이 바뀝니다.
+const heartButtons = document.querySelectorAll(".heart-button");
+
+heartButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    button.classList.toggle("liked");
+
+    if (button.classList.contains("liked")) {
+      button.textContent = "♥";
+      showMessage("관심 상품에 추가했습니다.");
+    } else {
+      button.textContent = "♡";
+      showMessage("관심 상품에서 삭제했습니다.");
+    }
+  });
+});
+
+// 네비게이션 메뉴 클릭 시 active 표시 변경
+const navLinks = document.querySelectorAll(".main-nav a");
+navLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.forEach(function (item) {
+      item.classList.remove("active");
+    });
+    link.classList.add("active");
+  });
+});
+
+
 
