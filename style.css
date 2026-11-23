@@ -196,7 +196,7 @@ img { display: block; width: 100%; object-fit: cover; }
 .login-submit:hover { background: #91a18b; }
 .login-demo-note { margin: 17px 0 0; color: #aaa; font-size: 9px; line-height: 1.6; }
 
-
+/* ===== 회원가입 창 ===== */
 #signupOverlay .login-box { max-height: 92vh; overflow-y: auto; }
 #signupForm { display: flex; flex-direction: column; }
 #signupForm label { margin: 0 0 8px; font-size: 12px; font-weight: 700; }
@@ -233,4 +233,3 @@ img { display: block; width: 100%; object-fit: cover; }
   cursor: pointer;
 }
 .switch-text button:hover { color: #91a18b; }
-
