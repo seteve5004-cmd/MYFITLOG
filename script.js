@@ -185,3 +185,167 @@ navLinks.forEach(function (link) {
     link.classList.add("active");
   });
 });
+
+
+
+// ===== 회원가입 기능 =====
+const signupOverlay = document.getElementById("signupOverlay");
+const signupClose = document.getElementById("signupClose");
+const signupForm = document.getElementById("signupForm");
+const signupName = document.getElementById("signupName");
+const signupEmail = document.getElementById("signupEmail");
+const signupPassword = document.getElementById("signupPassword");
+const signupPasswordCheck = document.getElementById("signupPasswordCheck");
+const signupAgree = document.getElementById("signupAgree");
+
+// 저장된 회원 목록을 가져옵니다. (없으면 빈 배열)
+function getMembers() {
+  const saved = localStorage.getItem("members");
+
+  if (saved === null) {
+    return [];
+  }
+
+  return JSON.parse(saved);
+}
+
+// 로그인 창의 "회원가입" 글자를 누르면 회원가입 창을 엽니다.
+document.getElementById("goSignup").addEventListener("click", function () {
+  loginOverlay.classList.remove("show");
+  signupOverlay.classList.add("show");
+  signupName.focus();
+});
+
+// 회원가입 창의 "로그인" 글자를 누르면 로그인 창으로 돌아갑니다.
+document.getElementById("goLogin").addEventListener("click", function () {
+  signupOverlay.classList.remove("show");
+  loginOverlay.classList.add("show");
+  loginEmail.focus();
+});
+
+// X 버튼을 누르면 회원가입 창을 닫습니다.
+signupClose.addEventListener("click", function () {
+  signupOverlay.classList.remove("show");
+});
+
+// 회원가입 창 바깥쪽을 누르면 창을 닫습니다.
+signupOverlay.addEventListener("click", function (event) {
+  if (event.target === signupOverlay) {
+    signupOverlay.classList.remove("show");
+  }
+});
+
+// 회원가입 정보를 검사하고 저장합니다.
+signupForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = signupName.value.trim();
+  const email = signupEmail.value.trim();
+  const password = signupPassword.value;
+  const passwordCheck = signupPasswordCheck.value;
+
+  if (name === "") {
+    showMessage("이름을 입력해 주세요.");
+    signupName.focus();
+    return;
+  }
+
+  // 이메일 형식인지 확인합니다.
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(email)) {
+    showMessage("올바른 이메일 주소를 입력해 주세요.");
+    signupEmail.focus();
+    return;
+  }
+
+  // 비밀번호 규칙을 확인합니다. (로그인과 같은 규칙)
+  const alphabetCount = (password.match(/[a-zA-Z]/g) || []).length;
+  const specialPattern = /[^a-zA-Z0-9\s]/;
+
+  if (alphabetCount < 8 || !specialPattern.test(password)) {
+    showMessage("비밀번호는 영문 8자 이상과 특수문자 1개 이상이 필요합니다.");
+    signupPassword.focus();
+    return;
+  }
+
+  // 비밀번호와 비밀번호 확인이 같은지 확인합니다.
+  if (password !== passwordCheck) {
+    showMessage("비밀번호가 서로 다릅니다. 다시 확인해 주세요.");
+    signupPasswordCheck.focus();
+    return;
+  }
+
+  if (!signupAgree.checked) {
+    showMessage("이용약관에 동의해 주세요.");
+    return;
+  }
+
+  // 이미 가입된 이메일인지 확인합니다.
+  const members = getMembers();
+  const alreadyJoined = members.some(function (item) {
+    return item.email === email;
+  });
+
+  if (alreadyJoined) {
+    showMessage("이미 가입된 이메일입니다.");
+    signupEmail.focus();
+    return;
+  }
+
+  // 회원 정보를 저장합니다. (과제용이라 브라우저에만 저장됩니다.)
+  members.push({ name: name, email: email, password: password });
+  localStorage.setItem("members", JSON.stringify(members));
+
+  signupForm.reset();
+  signupOverlay.classList.remove("show");
+  loginOverlay.classList.add("show");
+  loginEmail.value = email;
+  loginPassword.focus();
+  showMessage("회원가입이 완료되었습니다. 로그인해 주세요!");
+});
+
+
+==================================================
+[script.js 수정 ②] (선택) 가입한 회원만 로그인되게 하기
+==================================================
+이걸 안 넣으면 회원가입은 되지만, 로그인은 예전처럼 형식만 맞으면 누구나 통과해요.
+가입한 회원만 로그인되게 하려면 script.js에서 아래 부분을 찾으세요.
+
+  // 조건을 통과하면 이메일을 세션 스토리지에 저장합니다.
+  sessionStorage.setItem("loginEmail", email);
+  checkLogin();
+
+  loginForm.reset();
+  loginOverlay.classList.remove("show");
+  showMessage("로그인되었습니다. 환영합니다!");
+});
+
+이 부분을 아래 내용으로 바꾸세요.
+
+  // 회원가입한 회원인지 확인합니다.
+  const members = getMembers();
+  const member = members.find(function (item) {
+    return item.email === email;
+  });
+
+  if (!member) {
+    showMessage("가입되지 않은 이메일입니다. 회원가입을 해주세요.");
+    return;
+  }
+
+  if (member.password !== password) {
+    showMessage("비밀번호가 일치하지 않습니다.");
+    loginPassword.focus();
+    return;
+  }
+
+  // 조건을 통과하면 이메일을 세션 스토리지에 저장합니다.
+  sessionStorage.setItem("loginEmail", email);
+  checkLogin();
+
+  loginForm.reset();
+  loginOverlay.classList.remove("show");
+  showMessage(member.name + "님, 로그인되었습니다. 환영합니다!");
+});
+
