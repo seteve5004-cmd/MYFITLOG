@@ -20,11 +20,11 @@
         <a href="#category">TOP</a>
         <a href="#category">BOTTOM</a>
         <a href="#category">ACC</a>
-        <a href="#communication">COMMUNICATION</a>
+        <a href="#communication">커뮤니케이션</a>
       </nav>
       <div class="header-actions">
         <button class="icon-button" id="searchButton" aria-label="검색">⌕</button>
-        <button class="text-button" id="cartButton">CART <span>0</span></button>
+        <button class="text-button" id="cartButton">CART <span id="cartCount">0</span></button>
         <button class="text-button" id="loginButton">LOGIN</button>
       </div>
     </div>
@@ -79,6 +79,29 @@
     </div>
   </div>
 
+  <!-- 장바구니 창 -->
+  <div class="login-overlay" id="cartOverlay">
+    <div class="cart-box">
+      <button class="login-close" id="cartClose" type="button" aria-label="장바구니 창 닫기">×</button>
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">YOUR SHOPPING BAG</p>
+          <h2>장바구니<span>.</span></h2>
+        </div>
+        <button type="button" class="cart-clear-btn" id="cartClearBtn">전체 삭제</button>
+      </div>
+
+      <!-- 상단 프로모션 배너 (무신사 장바구니 스타일 반영) -->
+      <div class="cart-promo-banner">
+        <span class="promo-badge">CAMPUS EVENT</span>
+        <p>대학생 회원 전 상품 무료배송 &amp; 첫 구매 10% 추가 쿠폰 혜택</p>
+      </div>
+
+      <!-- 장바구니 내용 영역 (JS에서 상태에 따라 렌더링) -->
+      <div id="cartContent"></div>
+    </div>
+  </div>
+
   <main>
     <!-- 메인 배너 -->
     <section class="hero" id="home">
@@ -117,21 +140,25 @@
         <a class="more-link" href="#best">전체 상품 보기 ↗</a>
       </div>
       <div class="product-grid" id="productGrid">
-        <article class="product-card" data-name="오버핏 데일리 후드티">
+        <article class="product-card" data-id="p1" data-name="오버핏 데일리 후드티" data-price="39200" data-category="TOP · HOODIE" data-img="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85">
           <div class="product-image"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85" alt="오버핏 데일리 후드티"><span class="sale-label">20% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
           <p class="product-category">TOP · HOODIE</p><h3>오버핏 데일리 후드티</h3><div class="price"><strong>39,200원</strong><del>49,000원</del></div><p class="fit-info">리뷰 128개 <span>·</span> 구매자 핏 정보</p>
+          <button type="button" class="add-cart-btn">+ 장바구니 담기</button>
         </article>
-        <article class="product-card" data-name="베이직 코튼 맨투맨">
+        <article class="product-card" data-id="p2" data-name="베이직 코튼 맨투맨" data-price="33900" data-category="TOP · SWEATSHIRT" data-img="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=85">
           <div class="product-image"><img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=85" alt="베이직 코튼 맨투맨"><span class="sale-label">15% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
           <p class="product-category">TOP · SWEATSHIRT</p><h3>베이직 코튼 맨투맨</h3><div class="price"><strong>33,900원</strong><del>39,900원</del></div><p class="fit-info">리뷰 96개 <span>·</span> 구매자 핏 정보</p>
+          <button type="button" class="add-cart-btn">+ 장바구니 담기</button>
         </article>
-        <article class="product-card" data-name="와이드 스트레이트 데님">
+        <article class="product-card" data-id="p3" data-name="와이드 스트레이트 데님" data-price="44100" data-category="BOTTOM · DENIM" data-img="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85">
           <div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85" alt="와이드 스트레이트 데님"><span class="sale-label">10% OFF</span><button class="heart-button" aria-label="찜하기">♡</button></div>
           <p class="product-category">BOTTOM · DENIM</p><h3>와이드 스트레이트 데님</h3><div class="price"><strong>44,100원</strong><del>49,000원</del></div><p class="fit-info">리뷰 74개 <span>·</span> 구매자 핏 정보</p>
+          <button type="button" class="add-cart-btn">+ 장바구니 담기</button>
         </article>
-        <article class="product-card" data-name="데일리 캔버스 백">
+        <article class="product-card" data-id="p4" data-name="데일리 캔버스 백" data-price="28000" data-category="ACC · BAG" data-img="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85">
           <div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85" alt="데일리 캔버스 백"><span class="sale-label">NEW</span><button class="heart-button" aria-label="찜하기">♡</button></div>
           <p class="product-category">ACC · BAG</p><h3>데일리 캔버스 백</h3><div class="price"><strong>28,000원</strong></div><p class="fit-info">리뷰 32개 <span>·</span> 구매자 핏 정보</p>
+          <button type="button" class="add-cart-btn">+ 장바구니 담기</button>
         </article>
       </div>
     </section>
